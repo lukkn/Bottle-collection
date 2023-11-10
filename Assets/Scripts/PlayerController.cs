@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.Design;
@@ -7,7 +8,7 @@ public class PlayerController : MonoBehaviour
 {
     protected float movementSpeed = 3;
     protected float jumpForce = 5;
-    private bool playerActive;
+    protected bool playerActive;
 
     void Update(){
         if(playerActive){ 
@@ -16,6 +17,12 @@ public class PlayerController : MonoBehaviour
         }
         LimitRange();
     }   
+
+    void FixedUpdate(){
+        float speed = Math.Max(GetComponent<Rigidbody>().velocity.x,GetComponent<Rigidbody>().velocity.z);
+        
+        GetComponent<Animator>().SetFloat("height", transform.position.y);
+    }
 
     // helper functions
     protected virtual void Jump(){
@@ -27,6 +34,12 @@ public class PlayerController : MonoBehaviour
 
         float verticalInput = Input.GetAxis("Vertical");
         transform.position += Vector3.forward* verticalInput * Time.deltaTime * movementSpeed;
+
+        if(horizontalInput != 0.0f || verticalInput != 0.0f) {
+            GetComponent<Animator>().SetFloat("speed", 3.0f);
+        } else {
+            GetComponent<Animator>().SetFloat("speed", 0.0f);
+        }
     }
 
     protected void Select(GameObject player){

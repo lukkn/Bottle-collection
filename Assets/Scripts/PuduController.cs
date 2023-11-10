@@ -9,8 +9,7 @@ public class PuduController : PlayerController
         base.Deselect(GameObject.Find("Sparrow"));
     }
 
-    protected override void Jump(){
-        
+    protected override void Jump(){       
         if (IsGrounded()){
             gameObject.GetComponent<Rigidbody>().AddForce(Vector3.up * base.jumpForce, ForceMode.Impulse);
         }
@@ -19,5 +18,4 @@ public class PuduController : PlayerController
     bool IsGrounded(){
         return GetComponent<Rigidbody>().velocity.y == 0;
     }
-      
 }
