@@ -2,10 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using TMPro;
+using UnityEngine.UI;
 
 public class MainManager : MonoBehaviour
 {
     private GameObject activePlayer;
+    [SerializeField] private TextMeshProUGUI scoreText;
     private int score = 0;
 
     public void SetActivePlayer(GameObject player){
@@ -18,7 +21,7 @@ public class MainManager : MonoBehaviour
 
     public void increaseScore(){
         score += 1;
-        Debug.Log("Score:" + score);
+        scoreText.SetText("Score: " + score);
     }
 
 }
