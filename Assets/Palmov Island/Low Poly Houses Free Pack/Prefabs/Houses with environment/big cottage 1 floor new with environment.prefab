@@ -11,10 +11,7 @@ GameObject:
   - component: {fileID: 2002014880370375069}
   - component: {fileID: 3199612339545093688}
   - component: {fileID: 829710379148526322}
-  - component: {fileID: 4275647382376838527}
-  - component: {fileID: 8722127121413591825}
-  - component: {fileID: 7236785091493425720}
-  - component: {fileID: 8513527976386741656}
+  - component: {fileID: 2362762727640259725}
   m_Layer: 0
   m_Name: big cottage 1 floor new with environment
   m_TagString: Untagged
@@ -93,8 +90,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &4275647382376838527
-BoxCollider:
+--- !u!64 &2362762727640259725
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -111,72 +108,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 13.227698, y: 5.789953, z: 5.1206083}
-  m_Center: {x: 0.9436884, y: 2.8949761, z: -0.90353084}
---- !u!65 &8722127121413591825
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1189870874870014759}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.8962264, y: 0.18900347, z: 1.2819133}
-  m_Center: {x: -6.6358366, y: 0.09450126, z: -0.9207787}
---- !u!65 &7236785091493425720
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1189870874870014759}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.4536945, y: 0.44838047, z: 1.2819133}
-  m_Center: {x: -6.414571, y: 0.22418976, z: -0.9207787}
---- !u!65 &8513527976386741656
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1189870874870014759}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.9996736, y: 2.922031, z: 2.0786526}
-  m_Center: {x: -6.18756, y: 1.461015, z: -0.920156}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4510279086003855839, guid: 3bcdbe39a6af358408a873f4156da9d0, type: 3}
 --- !u!1001 &679293289204077034
 PrefabInstance:
   m_ObjectHideFlags: 0

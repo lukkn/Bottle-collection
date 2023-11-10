@@ -10,12 +10,10 @@ public class PuduController : PlayerController
     }
 
     protected override void Jump(){       
-        if (IsGrounded()){
+        if (base.IsGrounded()){
             gameObject.GetComponent<Rigidbody>().AddForce(Vector3.up * base.jumpForce, ForceMode.Impulse);
         }
     }
 
-    bool IsGrounded(){
-        return GetComponent<Rigidbody>().velocity.y == 0;
-    }
+    
 }

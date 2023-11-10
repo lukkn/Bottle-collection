@@ -58,6 +58,10 @@ public class PlayerController : MonoBehaviour
         playerActive = state;
     }
 
+    protected bool IsGrounded(){
+        return GetComponent<Rigidbody>().velocity.y == 0;
+    }
+
     void LimitRange(){
         float frontLimit = 3.7f;
         float backLimit = 22.0f;
