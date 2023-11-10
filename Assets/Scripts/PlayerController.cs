@@ -20,8 +20,7 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate(){
         float speed = Math.Max(GetComponent<Rigidbody>().velocity.x,GetComponent<Rigidbody>().velocity.z);
-        
-        GetComponent<Animator>().SetFloat("height", transform.position.y);
+        GetComponent<Animator>().SetBool("grounded", IsGrounded());
     }
 
     // helper functions
@@ -59,7 +58,7 @@ public class PlayerController : MonoBehaviour
     }
 
     protected bool IsGrounded(){
-        return GetComponent<Rigidbody>().velocity.y == 0;
+        return GetComponent<Rigidbody>().velocity.y < 0.001 && GetComponent<Rigidbody>().velocity.y > -0.001;
     }
 
     void LimitRange(){
