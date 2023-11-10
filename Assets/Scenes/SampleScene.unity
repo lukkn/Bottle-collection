@@ -1927,22 +1927,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pudu
       objectReference: {fileID: 0}
-    - target: {fileID: 7271388750782440503, guid: 252ba5fa5d8167e42af72cf97baa830e, type: 3}
-      propertyPath: m_Size.y
-      value: 1.05737
-      objectReference: {fileID: 0}
-    - target: {fileID: 7271388750782440503, guid: 252ba5fa5d8167e42af72cf97baa830e, type: 3}
-      propertyPath: m_Center.x
-      value: 1.919328e-16
-      objectReference: {fileID: 0}
-    - target: {fileID: 7271388750782440503, guid: 252ba5fa5d8167e42af72cf97baa830e, type: 3}
-      propertyPath: m_Center.y
-      value: 0.51538694
-      objectReference: {fileID: 0}
-    - target: {fileID: 7271388750782440503, guid: 252ba5fa5d8167e42af72cf97baa830e, type: 3}
-      propertyPath: m_Center.z
-      value: 0.076006055
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

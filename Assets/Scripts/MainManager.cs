@@ -10,4 +10,9 @@ public class MainManager : MonoBehaviour
     public void SetActivePlayer(GameObject player){
         activePlayer = player;
     }
+
+    public GameObject GetActivePlayer(){
+        return activePlayer;
+    }
+
 }

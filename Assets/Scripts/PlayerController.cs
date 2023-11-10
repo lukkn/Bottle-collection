@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     private float movementSpeed = 3;
-    private float jumpForce = 4;
+    private float jumpForce = 3;
     [SerializeField] private bool playerActive;
     void Update(){
         if(playerActive){ 
