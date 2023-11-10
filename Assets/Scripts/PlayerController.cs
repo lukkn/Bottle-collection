@@ -9,9 +9,14 @@ public class PlayerController : MonoBehaviour
     protected float movementSpeed = 3;
     protected float jumpForce = 5;
     protected bool playerActive;
+    protected MainManager mainManager;
+
+    void Start(){
+        mainManager = GameObject.Find("Main Manager").GetComponent<MainManager>();
+    }
 
     void Update(){
-        if(playerActive){ 
+        if(playerActive && !mainManager.isGameComplete()){ 
             HandleMovement();
             if(Input.GetKeyDown(KeyCode.Space)){Jump();} 
         }

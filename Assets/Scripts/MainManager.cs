@@ -9,7 +9,10 @@ public class MainManager : MonoBehaviour
 {
     private GameObject activePlayer;
     [SerializeField] private TextMeshProUGUI scoreText;
+    [SerializeField] private GameObject levelCompleteMenu;
     private int score = 0;
+    private int numBottles = 2;
+    private bool gameComplete;
 
     public void SetActivePlayer(GameObject player){
         activePlayer = player;
@@ -22,6 +25,26 @@ public class MainManager : MonoBehaviour
     public void increaseScore(){
         score += 1;
         scoreText.SetText("Score: " + score);
+    }
+
+    public int getScore(){
+        return score;
+    }
+
+    public int getNumBottles(){
+        return numBottles;
+    }
+
+    public void setGameComplete(){
+        // game complete message
+        Debug.Log("Game Complete");
+        levelCompleteMenu.SetActive(true);
+        gameComplete = true;
+
+    }
+
+    public bool isGameComplete(){
+        return gameComplete;
     }
 
 }
