@@ -5,9 +5,10 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    private float movementSpeed = 3;
-    private float jumpForce = 4;
-    [SerializeField] private bool playerActive;
+    protected float movementSpeed = 3;
+    protected float jumpForce = 5;
+    private bool playerActive;
+
     void Update(){
         if(playerActive){ 
             HandleMovement();
@@ -17,8 +18,7 @@ public class PlayerController : MonoBehaviour
     }   
 
     // helper functions
-    protected void Jump(){
-        Debug.Log("Jump");
+    protected virtual void Jump(){
         gameObject.GetComponent<Rigidbody>().AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
     }
     protected void HandleMovement(){
@@ -32,8 +32,8 @@ public class PlayerController : MonoBehaviour
     protected void Select(GameObject player){
         Debug.Log(gameObject.name + " selected");
         GameObject.Find("Main Manager").GetComponent<MainManager>().SetActivePlayer(player);
-        player.transform.GetChild(0).gameObject.SetActive(true);
-        player.GetComponent<PlayerController>().SetPlayerActive(true);
+        player.transform.GetChild(0).gameObject.SetActive(true); // activate indicator on player
+        player.GetComponent<PlayerController>().SetPlayerActive(true); 
     }
 
     protected void Deselect(GameObject player){
