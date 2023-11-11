@@ -23,11 +23,6 @@ public class PlayerController : MonoBehaviour
         LimitRange();
     }   
 
-    void FixedUpdate(){
-        float speed = Math.Max(GetComponent<Rigidbody>().velocity.x,GetComponent<Rigidbody>().velocity.z);
-        GetComponent<Animator>().SetBool("grounded", IsGrounded());
-    }
-
     // helper functions
     protected virtual void Jump(){
         gameObject.GetComponent<Rigidbody>().AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
@@ -85,7 +80,7 @@ public class PlayerController : MonoBehaviour
             transform.position = new Vector3(rightLimit, transform.position.y, transform.position.z);
         }
 
-        float topLimit = 18.0f;  
+        float topLimit = 40.0f;  
         float bottomLimit = 2.0f;
         if (transform.position.y <= bottomLimit){
             transform.position = new Vector3(transform.position.x, bottomLimit, transform.position.z);
@@ -94,6 +89,12 @@ public class PlayerController : MonoBehaviour
             transform.position = new Vector3(transform.position.x, topLimit, transform.position.z);
         }
 
+    }
+
+    protected void FollowActivePlayer(){
+        if(!playerActive){
+            
+        }
     }
 
 }
