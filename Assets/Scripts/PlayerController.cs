@@ -85,7 +85,7 @@ public class PlayerController : MonoBehaviour
             transform.position = new Vector3(rightLimit, transform.position.y, transform.position.z);
         }
 
-        float topLimit = 20.0f;  
+        float topLimit = 18.0f;  
         float bottomLimit = 2.0f;
         if (transform.position.y <= bottomLimit){
             transform.position = new Vector3(transform.position.x, bottomLimit, transform.position.z);
