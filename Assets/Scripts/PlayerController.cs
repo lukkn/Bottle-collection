@@ -2,16 +2,20 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.Design;
+using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    protected float movementSpeed = 3;
-    protected float jumpForce = 5;
+    protected float movementSpeed {get; private set;}
+    protected float jumpForce {get; private set;}
     protected bool playerActive;
     protected MainManager mainManager;
 
     void Start(){
+        movementSpeed = 3;
+        jumpForce = 5;
         mainManager = GameObject.Find("Main Manager").GetComponent<MainManager>();
     }
 
@@ -93,7 +97,7 @@ public class PlayerController : MonoBehaviour
 
     protected void FollowActivePlayer(){
         if(!playerActive){
-            
+
         }
     }
 
