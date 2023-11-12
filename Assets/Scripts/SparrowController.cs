@@ -19,7 +19,10 @@ public class SparrowController : PlayerController
         }
 
         if(TaipanInRange()){
-            // scared message
+            speechBubble.SetActive(true);
+            speechBubbleText.SetText("I'm scared");
+            // move away from Taipan  
+            MoveAway(GameObject.Find("Taipan"));
         }
     }
     private void OnMouseDown(){
@@ -42,10 +45,22 @@ public class SparrowController : PlayerController
         return Vector3.Distance(GameObject.Find("Taipan").transform.position, transform.position) < 3.0f;
     }
 
-    IEnumerator DeactivateSpeechBubble(){
-        yield return new WaitForSeconds(3);
-        speechBubble.SetActive(false);
+    private void MoveAway(GameObject other){
+        float minDistance = 8.0f;
+        float distance = Vector3.Distance(GameObject.Find("Taipan").transform.position, transform.position);
+        Vector3 direction = transform.position - other.transform.position;
+        direction.Normalize();
+        if (distance < minDistance){
+            base.setAvoid(true);
+            transform.position += (direction * Time.deltaTime * movementSpeed);
+        } 
+        setAvoid(false);
+        StartCoroutine(DeactivateSpeechBubble());
     }
 
+    IEnumerator DeactivateSpeechBubble(){
+            yield return new WaitForSeconds(1);
+            speechBubble.SetActive(false);
+    }
     
 }

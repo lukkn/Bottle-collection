@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.Design;
+using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
@@ -12,6 +13,7 @@ public class PlayerController : MonoBehaviour
     protected float jumpForce {get; private set;}
     protected bool playerActive;
     protected MainManager mainManager;
+    protected bool avoid;
 
     void Start(){
         movementSpeed = 3;
@@ -20,7 +22,7 @@ public class PlayerController : MonoBehaviour
     }
 
     void Update(){
-        if(playerActive && !mainManager.isGameComplete()){ 
+        if(playerActive && !mainManager.isGameComplete() && !avoid){ 
             HandleMovement();
             if(Input.GetKeyDown(KeyCode.Space)){Jump();} 
         }
@@ -99,6 +101,10 @@ public class PlayerController : MonoBehaviour
         if(!playerActive){
 
         }
+    }
+
+    protected void setAvoid(bool boolean){
+        avoid = boolean;
     }
 
 }
