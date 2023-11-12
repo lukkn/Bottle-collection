@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviour
         movementSpeed = 3;
         jumpForce = 5;
         mainManager = GameObject.Find("Main Manager").GetComponent<MainManager>();
-        Select(GameObject.Find("Sparrow"));
+        mainManager.Select(GameObject.Find("Sparrow"));
     }
 
     void Update(){
@@ -62,19 +62,7 @@ public class PlayerController : MonoBehaviour
         
     }
 
-    protected void Select(GameObject player){
-        Debug.Log(gameObject.name + " selected");
-        GameObject.Find("Main Manager").GetComponent<MainManager>().SetActivePlayer(player);
-        player.transform.GetChild(0).gameObject.SetActive(true); // activate indicator on player
-        player.GetComponent<PlayerController>().SetPlayerActive(true); 
-    }
-
-    protected void Deselect(GameObject player){
-        player.transform.GetChild(0).gameObject.SetActive(false);
-        player.GetComponent<PlayerController>().SetPlayerActive(false);
-    }
-
-    void SetPlayerActive(bool state){
+    public void SetPlayerActive(bool state){
         playerActive = state;
     }
 

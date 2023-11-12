@@ -21,13 +21,12 @@ public class SparrowController : PlayerController
         if(TaipanInRange()){
             speechBubble.SetActive(true);
             speechBubbleText.SetText("I'm scared");
-            // move away from Taipan  
             MoveAway(GameObject.Find("Taipan"));
         }
     }
     private void OnMouseDown(){
-        base.Select(gameObject);
-        base.Deselect(GameObject.Find("Pudu"));
+        base.mainManager.Select(gameObject);
+        base.mainManager.Deselect(GameObject.Find("Pudu"));
     }
 
     protected override void Jump()
@@ -56,7 +55,7 @@ public class SparrowController : PlayerController
         } 
         setAvoid(false);
         StartCoroutine(DeactivateSpeechBubble());
-    }
+    } 
 
     IEnumerator DeactivateSpeechBubble(){
             yield return new WaitForSeconds(1);

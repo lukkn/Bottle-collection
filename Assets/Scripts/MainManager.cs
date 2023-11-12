@@ -13,7 +13,30 @@ public class MainManager : MonoBehaviour
     private int score = 0;
     private int numBottles = 10;
     private bool gameComplete;
+    
+    void Update(){
+        if (Input.GetKeyDown(KeyCode.Tab)){
+            GameObject activePlayer = GetActivePlayer();
+            if (activePlayer.CompareTag("Pudu")){
+                Select(GameObject.Find("Sparrow"));
+            } else if (activePlayer.CompareTag("Sparrow")){
+                Select(GameObject.Find("Pudu"));
+            }
+            Deselect(activePlayer);
+        }
 
+    }
+    public void Select(GameObject player){
+        Debug.Log(gameObject.name + " selected");
+        GameObject.Find("Main Manager").GetComponent<MainManager>().SetActivePlayer(player);
+        player.transform.GetChild(0).gameObject.SetActive(true); // activate indicator on player
+        player.GetComponent<PlayerController>().SetPlayerActive(true); 
+    }
+
+    public void Deselect(GameObject player){
+        player.transform.GetChild(0).gameObject.SetActive(false);
+        player.GetComponent<PlayerController>().SetPlayerActive(false);
+    }
     public void SetActivePlayer(GameObject player){
         activePlayer = player;
     }

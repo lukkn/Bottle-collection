@@ -5,8 +5,8 @@ using UnityEngine;
 public class PuduController : PlayerController
 {
     private void OnMouseDown(){
-        base.Select(gameObject);
-        base.Deselect(GameObject.Find("Sparrow"));
+        base.mainManager.Select(gameObject);
+        base.mainManager.Deselect(GameObject.Find("Sparrow"));
     }
 
     protected override void Jump(){       
