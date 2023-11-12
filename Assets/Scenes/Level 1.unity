@@ -1278,6 +1278,7 @@ GameObject:
   - component: {fileID: 215440784}
   - component: {fileID: 215440783}
   - component: {fileID: 215440782}
+  - component: {fileID: 215440785}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1368,6 +1369,18 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &215440785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 215440780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a12b4b20ded392468215b9adb9b1997, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &217196165
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2421,7 +2434,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3161298468613301832, guid: 252ba5fa5d8167e42af72cf97baa830e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 14.799
+      value: 14.033
       objectReference: {fileID: 0}
     - target: {fileID: 3161298468613301832, guid: 252ba5fa5d8167e42af72cf97baa830e, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2429,7 +2442,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3161298468613301832, guid: 252ba5fa5d8167e42af72cf97baa830e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 4.95
+      value: 4.108
       objectReference: {fileID: 0}
     - target: {fileID: 3161298468613301832, guid: 252ba5fa5d8167e42af72cf97baa830e, type: 3}
       propertyPath: m_LocalRotation.w
@@ -5345,13 +5358,21 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2708755552786735673, guid: ad4137f595ec8e2449cacca9df7d3735, type: 3}
+      propertyPath: speechBubble
+      value: 
+      objectReference: {fileID: 1925207971}
+    - target: {fileID: 2708755552786735673, guid: ad4137f595ec8e2449cacca9df7d3735, type: 3}
+      propertyPath: speechBubbleText
+      value: 
+      objectReference: {fileID: 1801731155}
     - target: {fileID: 6788538757290762320, guid: ad4137f595ec8e2449cacca9df7d3735, type: 3}
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6788538757290762322, guid: ad4137f595ec8e2449cacca9df7d3735, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 15.97
+      value: 15.461
       objectReference: {fileID: 0}
     - target: {fileID: 6788538757290762322, guid: ad4137f595ec8e2449cacca9df7d3735, type: 3}
       propertyPath: m_LocalPosition.y
@@ -5359,7 +5380,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6788538757290762322, guid: ad4137f595ec8e2449cacca9df7d3735, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 4.505
+      value: 4.092
       objectReference: {fileID: 0}
     - target: {fileID: 6788538757290762322, guid: ad4137f595ec8e2449cacca9df7d3735, type: 3}
       propertyPath: m_LocalRotation.w
@@ -5392,6 +5413,10 @@ PrefabInstance:
     - target: {fileID: 6788538757290762323, guid: ad4137f595ec8e2449cacca9df7d3735, type: 3}
       propertyPath: m_Name
       value: Sparrow
+      objectReference: {fileID: 0}
+    - target: {fileID: 6788538757959556193, guid: ad4137f595ec8e2449cacca9df7d3735, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.316
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -12847,7 +12872,7 @@ GameObject:
   - component: {fileID: 1801731156}
   - component: {fileID: 1801731155}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Speech Bubble Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12892,7 +12917,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: I'm tired
+  m_text: message
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -14115,7 +14140,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1925207972
 RectTransform:
   m_ObjectHideFlags: 0

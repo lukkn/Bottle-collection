@@ -14,18 +14,25 @@ public class PlayerController : MonoBehaviour
     protected bool playerActive;
     protected MainManager mainManager;
     protected bool avoid;
+    private Vector3 lastPosition;
+    private float positionRecordingInterval = 3;
 
     void Start(){
         movementSpeed = 3;
         jumpForce = 5;
         mainManager = GameObject.Find("Main Manager").GetComponent<MainManager>();
+        Select(GameObject.Find("Sparrow"));
     }
 
     void Update(){
         if(playerActive && !mainManager.isGameComplete() && !avoid){ 
-            HandleMovement();
+            HandleMovement(Input.GetAxis("Horizontal"),Input.GetAxis("Vertical"));
             if(Input.GetKeyDown(KeyCode.Space)){Jump();} 
+        } else if (!playerActive){
+            FollowActivePlayer();
         }
+
+        RecordLastPosition();
         LimitRange();
     }   
 
@@ -33,9 +40,7 @@ public class PlayerController : MonoBehaviour
     protected virtual void Jump(){
         gameObject.GetComponent<Rigidbody>().AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
     }
-    protected void HandleMovement(){
-        float horizontalInput = Input.GetAxis("Horizontal");
-        float verticalInput = Input.GetAxis("Vertical");
+    protected void HandleMovement(float horizontalInput, float verticalInput){
 
         Vector3 movement = new Vector3(horizontalInput, 0.0f, verticalInput);
         if(movement != Vector3.zero) {
@@ -48,6 +53,7 @@ public class PlayerController : MonoBehaviour
         } else {
             GetComponent<Animator>().SetFloat("speed", 0.0f);
         }
+        
     }
 
     protected void Select(GameObject player){
@@ -101,10 +107,33 @@ public class PlayerController : MonoBehaviour
     }
 
     protected void FollowActivePlayer(){
-        if(!playerActive){
-
+        Vector3 activePlayerPos = mainManager.GetActivePlayer().transform.position;
+        Vector3 offset = new Vector3(2.0f, 0, 0);
+        if (transform.position.x < (activePlayerPos - offset).x){
+            HandleMovement(1,0);
+            CheckIfStuck();
+        } else if (transform.position.x > (activePlayerPos + offset).x){
+            HandleMovement(-1,0);
+            CheckIfStuck();
+        } else {
+            HandleMovement(0,0);
         }
     }
+
+    protected void CheckIfStuck(){
+         if (transform.position == lastPosition){
+            Debug.Log("I'm stuck");
+        }
+    }
+
+    protected void RecordLastPosition(){
+        if (positionRecordingInterval <= 0){
+            positionRecordingInterval = 3;
+            lastPosition = transform.position;
+        }
+        positionRecordingInterval -= Time.deltaTime;
+    }
+
 
     protected void setAvoid(bool boolean){
         avoid = boolean;
