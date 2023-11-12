@@ -175,10 +175,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: pizzeria house with environment
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8630900520141228642, guid: b05c8138689f126458e7f69eff351511, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6152661926355221082, guid: b05c8138689f126458e7f69eff351511, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2053605528}
   m_SourcePrefab: {fileID: 100100000, guid: b05c8138689f126458e7f69eff351511, type: 3}
 --- !u!4 &24264074 stripped
 Transform:
@@ -8450,6 +8454,33 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2404302659073719632, guid: 5c255520e756e46468e29dd841e33bab, type: 3}
   m_PrefabInstance: {fileID: 1090074563}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1090103747 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3951505460837739867, guid: fd35a4f041d705948957f1725fa81c41, type: 3}
+  m_PrefabInstance: {fileID: 1696005922}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1090103751
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1090103747}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -1808943086114878188, guid: 9b1171d3cb4139b42a6c93240f9ae252, type: 3}
 --- !u!1001 &1090263347
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12284,7 +12315,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3951505460837739867, guid: fd35a4f041d705948957f1725fa81c41, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1090103751}
   m_SourcePrefab: {fileID: 100100000, guid: fd35a4f041d705948957f1725fa81c41, type: 3}
 --- !u!4 &1696005923 stripped
 Transform:
@@ -12957,7 +12991,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3095705812015389950, guid: 87b365e5fc281404a8b2cb1011e450c1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 193.82
+      value: 188.47
       objectReference: {fileID: 0}
     - target: {fileID: 3095705812015389950, guid: 87b365e5fc281404a8b2cb1011e450c1, type: 3}
       propertyPath: m_LocalPosition.y
@@ -12965,7 +12999,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3095705812015389950, guid: 87b365e5fc281404a8b2cb1011e450c1, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 7.233024
+      value: 4.54
       objectReference: {fileID: 0}
     - target: {fileID: 3095705812015389950, guid: 87b365e5fc281404a8b2cb1011e450c1, type: 3}
       propertyPath: m_LocalRotation.w
@@ -15314,6 +15348,33 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f6c4572e07a60b43b00e1c4f489a806, type: 3}
+--- !u!1 &2053605523 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6152661926355221082, guid: b05c8138689f126458e7f69eff351511, type: 3}
+  m_PrefabInstance: {fileID: 24264073}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &2053605528
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2053605523}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -1714438349358728494, guid: f3c5b6792a09e194ea2c70c922db91f2, type: 3}
 --- !u!1001 &2058365428
 PrefabInstance:
   m_ObjectHideFlags: 0
