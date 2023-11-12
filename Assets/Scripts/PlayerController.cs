@@ -35,10 +35,13 @@ public class PlayerController : MonoBehaviour
     }
     protected void HandleMovement(){
         float horizontalInput = Input.GetAxis("Horizontal");
-        transform.position += Vector3.right * horizontalInput * Time.deltaTime * movementSpeed;
-
         float verticalInput = Input.GetAxis("Vertical");
-        transform.position += Vector3.forward* verticalInput * Time.deltaTime * movementSpeed;
+
+        Vector3 movement = new Vector3(horizontalInput, 0.0f, verticalInput);
+        if(movement != Vector3.zero) {
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(movement), 0.15F);
+        }
+        transform.Translate(movement * Time.deltaTime * movementSpeed, Space.World);
 
         if(horizontalInput != 0.0f || verticalInput != 0.0f) {
             GetComponent<Animator>().SetFloat("speed", 3.0f);
