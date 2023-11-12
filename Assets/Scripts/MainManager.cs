@@ -11,7 +11,7 @@ public class MainManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private GameObject levelCompleteMenu;
     private int score = 0;
-    private int numBottles = 15;
+    private int numBottles = 10;
     private bool gameComplete;
 
     public void SetActivePlayer(GameObject player){
@@ -24,7 +24,7 @@ public class MainManager : MonoBehaviour
 
     public void increaseScore(){
         score += 1;
-        scoreText.SetText("Score: " + score);
+        scoreText.SetText(score + "/" + numBottles);
     }
 
     public int getScore(){
