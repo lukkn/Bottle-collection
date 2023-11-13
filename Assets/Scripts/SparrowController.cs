@@ -6,22 +6,24 @@ using TMPro;
 
 public class SparrowController : PlayerController
 {
-    private float Energy = 0.3f;
+    private int Energy = 3;
+    private int MaxEnergy = 3;
     [SerializeField] TextMeshProUGUI speechBubbleText;
     [SerializeField] GameObject speechBubble;
 
     void FixedUpdate(){
         GetComponent<Animator>().SetBool("grounded", IsGrounded());
-        if (!base.IsGrounded() && Energy > 0.0f){
-            Energy -= Time.deltaTime;
-        } else if (base.IsGrounded() && Energy < 1.0f) {
-            Energy += Time.deltaTime * 3;
-        }
 
+        /*
         if(TaipanInRange()){
             speechBubble.SetActive(true);
             speechBubbleText.SetText("I'm scared");
             MoveAway(GameObject.Find("Taipan"));
+        }
+        */
+
+        if(IsGrounded() && Energy < MaxEnergy){
+            Energy = MaxEnergy;
         }
     }
     private void OnMouseDown(){
@@ -33,6 +35,7 @@ public class SparrowController : PlayerController
     {
         if (Energy > 0){
             base.Jump();
+            Energy -= 1;
         } else {
             speechBubble.SetActive(true);
             speechBubbleText.SetText("I'm Tired");

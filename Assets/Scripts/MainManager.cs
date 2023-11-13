@@ -27,7 +27,6 @@ public class MainManager : MonoBehaviour
 
     }
     public void Select(GameObject player){
-        Debug.Log(gameObject.name + " selected");
         GameObject.Find("Main Manager").GetComponent<MainManager>().SetActivePlayer(player);
         player.transform.GetChild(0).gameObject.SetActive(true); // activate indicator on player
         player.GetComponent<PlayerController>().SetPlayerActive(true); 
