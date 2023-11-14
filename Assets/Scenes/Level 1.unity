@@ -13229,6 +13229,10 @@ PrefabInstance:
       propertyPath: stuckMessage
       value: 
       objectReference: {fileID: 58402290}
+    - target: {fileID: 6788538757290762320, guid: ad4137f595ec8e2449cacca9df7d3735, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6788538757290762322, guid: ad4137f595ec8e2449cacca9df7d3735, type: 3}
       propertyPath: m_LocalPosition.x
       value: 12.21
