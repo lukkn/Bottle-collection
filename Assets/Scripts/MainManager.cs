@@ -10,6 +10,9 @@ public class MainManager : MonoBehaviour
     private GameObject activePlayer;
     [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private GameObject levelCompleteMenu;
+    [SerializeField] protected GameObject puduIcon;
+    [SerializeField] protected GameObject sparrowIcon;
+    [SerializeField] protected GameObject stuckMessage;
     private int score = 0;
     private int numBottles = 10;
     private bool gameComplete;
@@ -69,4 +72,18 @@ public class MainManager : MonoBehaviour
         return gameComplete;
     }
 
+    public void displayStuckMessage(GameObject gameObject){
+        if (gameObject.CompareTag("Pudu")){
+            puduIcon.SetActive(true);
+        } else if (gameObject.CompareTag("Sparrow")){
+            sparrowIcon.SetActive(true);
+        }
+            stuckMessage.SetActive(true);
+    } 
+
+    public void deactivateStuckMessage(){
+        puduIcon.SetActive(false);
+        sparrowIcon.SetActive(false);
+        stuckMessage.SetActive(false);
+    }
 }

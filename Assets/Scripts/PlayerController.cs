@@ -15,9 +15,7 @@ public class PlayerController : MonoBehaviour
     protected bool playerActive;
     protected MainManager mainManager;
     protected bool avoid;
-    [SerializeField] protected GameObject puduIcon;
-    [SerializeField] protected GameObject sparrowIcon;
-    [SerializeField] protected GameObject stuckMessage;
+    
 
     private Vector3 lastPosition;
     private float positionRecordingInterval = 3;   
@@ -118,19 +116,7 @@ public class PlayerController : MonoBehaviour
         float distance = transform.position.x - mainManager.GetActivePlayer().transform.position.x;
         if (distance > 7.0f || distance < -7.0f){
             Debug.Log("I'm stuck!");
-            if (gameObject.CompareTag("Pudu")){
-                puduIcon.SetActive(true);
-            } else if (gameObject.CompareTag("Sparrow")){
-                sparrowIcon.SetActive(true);
-            }
-            stuckMessage.SetActive(true);
-        } else {
-            if (gameObject.CompareTag("Pudu")){
-                puduIcon.SetActive(false);
-            } else if (gameObject.CompareTag("Sparrow")){
-                sparrowIcon.SetActive(false);
-            }
-            stuckMessage.SetActive(false);
+            mainManager.stuckMessage(gameObject);
         }
     }
 
