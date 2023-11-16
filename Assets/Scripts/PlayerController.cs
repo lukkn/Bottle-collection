@@ -116,7 +116,9 @@ public class PlayerController : MonoBehaviour
         float distance = transform.position.x - mainManager.GetActivePlayer().transform.position.x;
         if (distance > 7.0f || distance < -7.0f){
             Debug.Log("I'm stuck!");
-            mainManager.stuckMessage(gameObject);
+            mainManager.displayStuckMessage(gameObject);
+        } else {
+            mainManager.deactivateStuckMessage();
         }
     }
 
@@ -128,9 +130,15 @@ public class PlayerController : MonoBehaviour
         positionRecordingInterval -= Time.deltaTime;
     }
 
-
     protected void setAvoid(bool boolean){
         avoid = boolean;
     }
 
+    protected virtual void moveBetween(float startTime, GameObject startMarker, GameObject endMarker){
+        float journeyLength = Vector3.Distance(startMarker.transform.position, endMarker.transform.position);
+        float distCovered = (Time.time - startTime) * movementSpeed;
+        float fractionOfJourney = distCovered/journeyLength;
+
+        transform.position = Vector3.Lerp(startMarker.transform.position, endMarker.transform.position, fractionOfJourney);
+    }
 }
