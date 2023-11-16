@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.IO.LowLevel.Unsafe;
 using UnityEditor;
 using UnityEngine;
+using Cinemachine;
 
 public class Episode1 : MonoBehaviour
 {   
@@ -12,6 +14,7 @@ public class Episode1 : MonoBehaviour
     [SerializeField] private GameObject middleMarker;
     [SerializeField] private GameObject endMarker;
     private float stepNumber = 0;
+    [SerializeField] CinemachineVirtualCamera vcam1;
 
     void Start(){
         sparrow = GameObject.Find("Sparrow");
@@ -29,6 +32,7 @@ public class Episode1 : MonoBehaviour
             sparrow.GetComponent<Animator>().SetInteger("mood", 1);
             StartCoroutine(nextStepAfter(3));
         } else if (stepNumber == 1){
+            vcam1.m_Priority = 1;
             sparrowController.sparrowMoveBetween(startTime, startMarker, middleMarker);
         } else if (stepNumber == 2){
             sparrowController.sparrowMoveBetween(startTime, middleMarker, endMarker);
