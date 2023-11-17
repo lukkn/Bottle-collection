@@ -4,6 +4,7 @@ using Unity.IO.LowLevel.Unsafe;
 using UnityEditor;
 using UnityEngine;
 using Cinemachine;
+using System.ComponentModel;
 
 public class Episode1 : MonoBehaviour
 {   
@@ -13,7 +14,7 @@ public class Episode1 : MonoBehaviour
     [SerializeField] private GameObject startMarker;
     [SerializeField] private GameObject middleMarker;
     [SerializeField] private GameObject endMarker;
-    private int stepNumber = 0;
+    private int stepNumber = -1;
     [SerializeField] CinemachineVirtualCamera vcam1;
     [SerializeField] CinemachineVirtualCamera vcam2;
 
@@ -32,9 +33,11 @@ public class Episode1 : MonoBehaviour
     }
     void LateUpdate(){
         Debug.Log(stepNumber);
-        if (stepNumber == 0){
-            sparrowController.speak("What a nice day");
+        if (stepNumber == -1){
+            StartCoroutine(nextStepAfter(1,stepNumber));
             sparrow.GetComponent<Animator>().SetInteger("mood", 1);
+        }else if (stepNumber == 0){
+            sparrowController.speak("What a nice day");
             StartCoroutine(nextStepAfter(3, stepNumber));
         } else if (stepNumber == 1){
             vcam1.m_Priority = 1;
@@ -56,7 +59,9 @@ public class Episode1 : MonoBehaviour
 
     IEnumerator nextStepAfter(int seconds, int step){
         yield return new WaitForSeconds(seconds);
-        if(step == 0) {
+        if (stepNumber == -1){
+            stepNumber = 0;
+        }else if(step == 0) {
             stepNumber = 1; 
             sparrowController.deactivateSpeechBubble();
             startTime = Time.time;

@@ -667,7 +667,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_fontColor: {r: 0.16470589, g: 0.16470589, b: 0.16470589, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -687,9 +687,9 @@ MonoBehaviour:
   m_fontSize: 0.15
   m_fontSizeBase: 0.15
   m_fontWeight: 400
-  m_enableAutoSizing: 0
-  m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_enableAutoSizing: 1
+  m_fontSizeMin: 0.1
+  m_fontSizeMax: 0.2
   m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
@@ -720,7 +720,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0.1, y: 0.1, z: 0.1, w: 0.1}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -1073,9 +1073,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb0bb556f5f2c9f4bb0dc9fad0725a6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  puduIcon: {fileID: 0}
-  sparrowIcon: {fileID: 0}
-  stuckMessage: {fileID: 0}
   speechBubbleText: {fileID: 2590598370724826956}
   speechBubble: {fileID: 1338075783721719316}
 --- !u!1 &6788538757856321312
