@@ -10,6 +10,7 @@ public class SparrowController : PlayerController
     private int MaxEnergy = 3;
     [SerializeField] private TextMeshProUGUI speechBubbleText;
     [SerializeField] private GameObject speechBubble;
+    private bool speechBubbleActive;
 
     void FixedUpdate(){
         GetComponent<Animator>().SetBool("grounded", IsGrounded());
@@ -31,7 +32,7 @@ public class SparrowController : PlayerController
         base.mainManager.Deselect(GameObject.Find("Pudu"));
     }
 
-    protected override void Jump()
+    public override void Jump()
     {
         if (Energy > 0){
             base.Jump();

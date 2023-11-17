@@ -5,16 +5,15 @@ using UnityEditor;
 using UnityEngine;
 using Cinemachine;
 using System.ComponentModel;
+using Unity.VisualScripting;
 
 public class Episode1 : MonoBehaviour
 {   
     private GameObject sparrow;
     private SparrowController sparrowController;
     private float startTime;
-    [SerializeField] private GameObject startMarker;
-    [SerializeField] private GameObject middleMarker;
-    [SerializeField] private GameObject endMarker;
-    private int stepNumber = -1;
+    private int stepNumber = 0;
+    private int jumpCount = 0;
     [SerializeField] CinemachineVirtualCamera vcam1;
     [SerializeField] CinemachineVirtualCamera vcam2;
 
@@ -23,54 +22,62 @@ public class Episode1 : MonoBehaviour
         sparrowController = sparrow.GetComponent<SparrowController>();
     }
 
-    void Update(){   
-        if (Vector3.Distance(sparrow.transform.position, middleMarker.transform.position) < 0.5){
-            stepNumber = 2;
-            startTime = Time.time;
-        } else if (sparrow.transform.position == endMarker.transform.position){
-            StartCoroutine(nextStepAfter(1, stepNumber));
-        }
-    }
-    void LateUpdate(){
+    void Update(){
         Debug.Log(stepNumber);
-        if (stepNumber == -1){
-            StartCoroutine(nextStepAfter(1,stepNumber));
-            sparrow.GetComponent<Animator>().SetInteger("mood", 1);
-        }else if (stepNumber == 0){
-            sparrowController.speak("What a nice day");
-            StartCoroutine(nextStepAfter(3, stepNumber));
-        } else if (stepNumber == 1){
-            vcam1.m_Priority = 1;
-            sparrowController.sparrowMoveBetween(startTime, startMarker, middleMarker);
-        } else if (stepNumber == 2){
-            sparrowController.sparrowMoveBetween(startTime, middleMarker, endMarker);
-        } else if (stepNumber == 3){
-            sparrow.GetComponent<Animator>().SetInteger("mood", 7);
-            StartCoroutine(nextStepAfter(1, stepNumber));
-        } else if (stepNumber == 4 ){
-            vcam2.m_Priority = 1;
-            sparrowController.speak("What are all these bottles!?");
-            
-        } else if (stepNumber == 5){
-
+        switch (stepNumber)
+        {
+           case 0:
+            StartCoroutine(speak());
+            break;
+           case 1:
+            StopCoroutine(speak());
+            StartCoroutine(move());
+            break;
+           case 2:
+            StopCoroutine(move());
+            StartCoroutine(shock());
+            break;
+           case 3:
+            StopCoroutine(shock());
+            StartCoroutine(exclaim());
+            break;
         }
         
     }
 
-    IEnumerator nextStepAfter(int seconds, int step){
-        yield return new WaitForSeconds(seconds);
-        if (stepNumber == -1){
-            stepNumber = 0;
-        }else if(step == 0) {
-            stepNumber = 1; 
-            sparrowController.deactivateSpeechBubble();
-            startTime = Time.time;
-        } else if (step == 2){
-            stepNumber = 3;
-        } else if (step == 3){
-            stepNumber = 4;
-        }
+    IEnumerator speak(){
+        yield return new WaitForSeconds(1);
+        sparrow.GetComponent<Animator>().SetInteger("mood", 1);
+        sparrowController.speak("What a nice day");
+        stepNumber = 1;
     }
 
+     IEnumerator move(){
+        yield return new WaitForSeconds(3);
+        sparrowController.deactivateSpeechBubble();
+        vcam1.Priority = 1;
+        if(jumpCount < 1){
+            sparrowController.Jump();
+            jumpCount++;
+        }
+        if (sparrow.transform.position.z > 5.0f){
+            sparrowController.HandleMovement(0.0f, -1.0f);
+        } else {
+            sparrowController.HandleMovement(0.0f, 0.0f);
+            stepNumber = 2;
+        }
+    }
+        
+    IEnumerator shock(){
+        yield return new WaitForSeconds(2);
+        sparrow.GetComponent<Animator>().SetInteger("mood", 7);
+        stepNumber = 3;
+    }
+    
+    IEnumerator exclaim(){
+        yield return new WaitForSeconds(1);
+        vcam2.Priority = 1;
+        sparrowController.speak("What are all these bottles!?");
+    }
 
 }

@@ -4,16 +4,8 @@ using UnityEngine;
 
 public class SpeechBubble : MonoBehaviour
 {
-
-	private Quaternion rotation;
-
-	void Awake()
-	{
-		rotation = transform.rotation;
-	}
-	
 	void LateUpdate () 
 	{
-		transform.rotation = rotation;	
+		transform.rotation = Camera.main.transform.rotation;
 	}
 }

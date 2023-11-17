@@ -41,10 +41,10 @@ public class PlayerController : MonoBehaviour
     }   
 
     // helper functions
-    protected virtual void Jump(){
+    public virtual void Jump(){
         gameObject.GetComponent<Rigidbody>().AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
     }
-    protected void HandleMovement(float horizontalInput, float verticalInput){
+    public void HandleMovement(float horizontalInput, float verticalInput){
 
         Vector3 movement = new Vector3(horizontalInput, 0.0f, verticalInput);
         if(movement != Vector3.zero) {
@@ -64,7 +64,7 @@ public class PlayerController : MonoBehaviour
         playerActive = state;
     }
 
-    protected bool IsGrounded(){
+    public bool IsGrounded(){
         return GetComponent<Rigidbody>().velocity.y < 0.001 && GetComponent<Rigidbody>().velocity.y > -0.001;
     }
 
@@ -141,4 +141,5 @@ public class PlayerController : MonoBehaviour
 
         transform.position = Vector3.Lerp(startMarker.transform.position, endMarker.transform.position, fractionOfJourney);
     }
+
 }

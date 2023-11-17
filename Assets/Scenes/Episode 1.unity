@@ -5012,7 +5012,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7648219161808711816, guid: ad4137f595ec8e2449cacca9df7d3735, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 1
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 7648219161808711816, guid: ad4137f595ec8e2449cacca9df7d3735, type: 3}
       propertyPath: m_SizeDelta.y
@@ -5670,8 +5670,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 565613469}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.18989334, y: -0.27244827, z: 0.054942306, w: 0.94164425}
-  m_LocalPosition: {x: 109.132866, y: 14.741, z: 5.6711655}
+  m_LocalRotation: {x: -0.04595434, y: 0.9522507, z: -0.18137707, w: -0.24126564}
+  m_LocalPosition: {x: 109.085754, y: 14.741, z: 11.162775}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -7255,7 +7255,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &678617020
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15049,7 +15049,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4044717213e31446939f7bd49c896ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_TrackedObjectOffset: {x: -2, y: 0, z: -2}
+  m_TrackedObjectOffset: {x: 3, y: 0, z: -1}
   m_LookaheadTime: 0
   m_LookaheadSmoothing: 0
   m_LookaheadIgnoreY: 0
@@ -15077,9 +15077,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Damping: {x: 0.1, y: 0.5, z: 0.3}
-  ShoulderOffset: {x: 4, y: 2, z: 5}
+  ShoulderOffset: {x: 3, y: 2, z: 4}
   VerticalArmLength: 0.5
-  CameraSide: 0.8
+  CameraSide: 0
   CameraDistance: 3
   CameraCollisionFilter:
     serializedVersion: 2
@@ -18851,9 +18851,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ab9a5a8380fff441aac7caa5c407761, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startMarker: {fileID: 1016804924}
-  middleMarker: {fileID: 672501522}
-  endMarker: {fileID: 709521364}
   vcam1: {fileID: 678617020}
   vcam2: {fileID: 565613470}
 --- !u!4 &1683432848
@@ -19664,7 +19661,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 70
+  field of view: 60.000004
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -19690,8 +19687,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1785121057}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.16847885, y: 0.08357733, z: -0.01433837, w: 0.982051}
-  m_LocalPosition: {x: 108.9, y: 15.1, z: 4.2458067}
+  m_LocalRotation: {x: -0.04595434, y: 0.9522507, z: -0.18137707, w: -0.24126564}
+  m_LocalPosition: {x: 109.085754, y: 14.741, z: 11.162775}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

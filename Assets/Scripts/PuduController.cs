@@ -9,7 +9,7 @@ public class PuduController : PlayerController
         base.mainManager.Deselect(GameObject.Find("Sparrow"));
     }
 
-    protected override void Jump(){       
+    public override void Jump(){       
         if (base.IsGrounded()){
             base.Jump();
         }
