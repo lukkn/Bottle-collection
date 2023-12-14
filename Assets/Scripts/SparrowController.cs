@@ -14,6 +14,10 @@ public class SparrowController : PlayerController
 
     void FixedUpdate(){
         GetComponent<Animator>().SetBool("grounded", IsGrounded());
+        //Debug.Log(IsGrounded());
+        Debug.Log("x: " + GetComponent<Rigidbody>().velocity.x);
+        //Debug.Log("y: " + GetComponent<Rigidbody>().velocity.y);
+        //Debug.Log("z: " + GetComponent<Rigidbody>().velocity.z);
 
         /*
         if(TaipanInRange()){
@@ -87,7 +91,7 @@ public class SparrowController : PlayerController
 Sparrow mood:
 (0) Neutral
 (1) Happy
-(2) Annoyed
+(2) Annoyed 
 (3) Suprised
 (4) Excited
 (5) Sad
