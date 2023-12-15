@@ -14,10 +14,6 @@ public class SparrowController : PlayerController
 
     void FixedUpdate(){
         GetComponent<Animator>().SetBool("grounded", IsGrounded());
-        //Debug.Log(IsGrounded());
-        Debug.Log("x: " + GetComponent<Rigidbody>().velocity.x);
-        //Debug.Log("y: " + GetComponent<Rigidbody>().velocity.y);
-        //Debug.Log("z: " + GetComponent<Rigidbody>().velocity.z);
 
         /*
         if(TaipanInRange()){

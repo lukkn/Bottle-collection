@@ -14,7 +14,7 @@ public class MainManager : MonoBehaviour
     [SerializeField] protected GameObject sparrowIcon;
     [SerializeField] protected GameObject stuckMessage;
     private int score = 0;
-    private int numBottles = 10;
+    private int numBottles = 0;
     private bool gameComplete;
     
     void Update(){

@@ -12533,9 +12533,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreText: {fileID: 399709669}
   levelCompleteMenu: {fileID: 337949760}
-  puduIcon: {fileID: 0}
-  sparrowIcon: {fileID: 0}
-  stuckMessage: {fileID: 0}
+  puduIcon: {fileID: 1414229876}
+  sparrowIcon: {fileID: 1029312688}
+  stuckMessage: {fileID: 2133949261}
 --- !u!4 &1766793630
 Transform:
   m_ObjectHideFlags: 0

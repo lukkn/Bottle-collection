@@ -9,8 +9,8 @@ public class BoxBehavior : MonoBehaviour
     void Start(){
         mainManager = GameObject.Find("Main Manager").GetComponent<MainManager>();
     }
-    void OnTriggerEnter(){
-        if(mainManager.getNumBottles() == mainManager.getScore()){
+    void OnTriggerEnter(Collider other){
+        if(mainManager.getNumBottles() == mainManager.getScore() && other.gameObject == mainManager.GetActivePlayer()){
             mainManager.setGameComplete();
         }
     }
